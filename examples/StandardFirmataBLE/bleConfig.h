@@ -26,7 +26,8 @@
  * Be sure to install the ArduinoBLE library via the Arduino Library Manager.
  *
  */
-#if defined(ARDUINO_SAMD_MKRWIFI1010) || defined(ARDUINO_AVR_UNO_WIFI_REV2) || defined(ARDUINO_SAMD_NANO_33_IOT) || defined(ARDUINO_ARDUINO_NANO33BLE)
+// ARDUINO_UNOWIFIR4 added by Wolf on 25 July 2924
+#if defined(ARDUINO_SAMD_MKRWIFI1010) || defined(ARDUINO_AVR_UNO_WIFI_REV2) || defined(ARDUINO_SAMD_NANO_33_IOT) || defined(ARDUINO_ARDUINO_NANO33BLE) || defined(ARDUINO_UNOWIFIR4)
 #define ARDUINO_BLE
 
 // Value is specified in units of 0.625 ms

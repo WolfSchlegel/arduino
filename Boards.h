@@ -148,6 +148,25 @@ writePort(port, value, bitmask):  Write an 8 bit port.
 #define IS_PIN_INTERRUPT(p)     (0)
 #endif
 
+// Arduino Uno Wifi R4
+// Added by Wolf on 25 July 2024 
+//
+// Source: https://forum.arduino.cc/t/adding-arduino-r4-wifi-to-firmata-board-h-file/1247689 
+#elif defined(ARDUINO_UNOWIFIR4)
+#define TOTAL_ANALOG_PINS 6
+#define TOTAL_PINS 20 // 14 digital + 6 analog
+#define VERSION_BLINK_PIN 13 // or any available pin for LED
+#define IS_PIN_DIGITAL(p) ((p) >= 0 && (p) <= 13) // Adjusted for digital pins
+#define IS_PIN_ANALOG(p) ((p) >= 14 && (p) <= 19) // Adjusted for analog pins
+#define IS_PIN_PWM(p) (((p) == 3) || ((p) >= 5 && (p) <= 9) || ((p) >= 10 && (p) <= 13)) // Adjusted for PWM pins
+#define IS_PIN_SERVO(p) (((p) == 3) || ((p) >= 5 && (p) <= 9) || ((p) >= 10 && (p) <= 13)) // Adjusted for servo pins
+#define IS_PIN_I2C(p) ((p) == 18 || (p) == 19) // Adjusted for I2C pins
+#define IS_PIN_SPI(p) ((p) == SS || (p) == MOSI || (p) == MISO || (p) == SCK) // Adjusted for SPI pins
+#define PIN_TO_DIGITAL(p) (p) // Adjusted for digital pins
+#define PIN_TO_ANALOG(p) ((p)-14) // Adjusted for analog pins
+#define PIN_TO_PWM(p) PIN_TO_DIGITAL(p) // Adjusted for PWM pins
+#define PIN_TO_SERVO(p) PIN_TO_DIGITAL(p)
+
 // Arduino Duemilanove, Diecimila, and NG
 #if defined(__AVR_ATmega168__) || defined(__AVR_ATmega328P__) || defined(__AVR_ATmega328__)
 #if defined(NUM_ANALOG_INPUTS) && NUM_ANALOG_INPUTS == 6
